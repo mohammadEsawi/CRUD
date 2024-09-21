@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+@{
+
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nmae</th>
+            <th scope="col">Email</th>
+            <th scope="col">Paswword</th>
+        </tr>
+    </thead>
+    <tbody>
+     @foreach(var item in Model){
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Password</td>
+
+            </tr>
+     }
+  
+    </tbody>
+</table>
