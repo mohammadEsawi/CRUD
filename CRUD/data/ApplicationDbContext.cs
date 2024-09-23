@@ -10,6 +10,6 @@ namespace CRUD.data
             optionsBuilder.UseSqlServer("Server=. ;Database=CrudDATA; Trusted_Connection=True;trustservercertificate=true");
         }
 
-       public  DbSet<Employee> employees { get; set; } 
+       public  DbSet<Employee> Employees { get; set; } 
     }
 }

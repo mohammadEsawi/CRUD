@@ -10,7 +10,7 @@ namespace CRUD.Controllers
         ApplicationDbContext context = new ApplicationDbContext();
         public IActionResult Index()
         {
-            var employees = context.employees.ToList();
+            var employees = context.Employees.ToList();
             return View("Index", employees);
         }
 
@@ -21,11 +21,19 @@ namespace CRUD.Controllers
 
         public IActionResult Store(Employee emp)
         {
-            context.employees.Add(emp);
+            context.Employees.Add(emp);
             context.SaveChanges();
             return RedirectToAction("Index");
 
 
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var employee = context.Employees.Find(id);
+            context.Employees.Remove(employee);
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
     }
