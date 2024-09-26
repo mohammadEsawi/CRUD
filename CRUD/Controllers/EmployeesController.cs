@@ -27,6 +27,22 @@ namespace CRUD.Controllers
 
 
         }
+        public IActionResult Edit(int id )
+        {
+            var employee = context.Employees.Find(id);
+
+            return View(employee);
+        }
+        public IActionResult Update(Employee emp) {
+            var employee = context.Employees.Find(emp.Id);
+
+            employee.Name = emp.Name;
+            employee.Email = emp.Email;
+            employee.Password=emp.Password;
+
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
         public IActionResult Delete(int id)
         {
